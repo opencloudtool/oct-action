@@ -1,0 +1,34 @@
+name: 'OpenCloudTool Action'
+description: 'GitHub Action for OpenCloudTool'
+author: 'OpenCloudTool'
+
+branding:
+  icon: 'cloud'
+  color: 'blue'
+
+inputs:
+  command:
+    description: 'The OCT command to run'
+    required: true
+  working-directory:
+    description: 'The working directory to run the command in'
+    required: true
+    default: '.'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Install `oct-cli`
+      shell: bash
+      run: |
+        curl \
+          --output /usr/local/bin/oct-ctl \
+          -L \
+          https://github.com/opencloudtool/opencloudtool/releases/download/tip/oct-ctl \
+          && sudo chmod +x /usr/local/bin/oct-ctl
+      
+    - name: Run OCT Command
+      shell: bash
+      run: |
+        cd ${{ inputs.working-directory }}
+        oct-ctl ${{ inputs.command }}
