@@ -31,7 +31,7 @@ jobs:
 
 | Parameter           | Description                                  | Required | Default |
 | ------------------- | -------------------------------------------- | -------- | ------- |
-| `command`           | The OCT command to run                       | Yes      | N/A     |
+| `command`           | The opencloudtool command to run             | Yes      | N/A     |
 | `working-directory` | Directory where the command will be executed | Yes      | `.`     |
 
 ## License
