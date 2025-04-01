@@ -20,13 +20,8 @@ runs:
   steps:
     - name: Install `oct-cli`
       shell: bash
-      run: |
-        curl \
-          --output /usr/local/bin/oct-cli \
-          -L \
-          https://github.com/opencloudtool/opencloudtool/releases/download/tip/oct-cli \
-          && sudo chmod +x /usr/local/bin/oct-cli
-      
+      run: curl -LsSf https://repo.opencloudtool.com/install.sh | sh
+
     - name: Run opencloudtool Command
       shell: bash
       run: |
